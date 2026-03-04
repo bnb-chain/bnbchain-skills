@@ -64,7 +64,8 @@ Restart or reload the MCP client after changing config so the server starts.
 
 ### Network parameter
 
-Most EVM tools accept **`network`** (optional): chain name or ID, e.g. `bsc`, `opbnb`, `ethereum`, `base`. Default is `bsc`. Use **`get_supported_networks`** to list supported networks.
+- **Read-only tools** (blocks, balances, contract reads, get_chain_info, etc.): **`network`** is optional; default is `bsc`. Use **`get_supported_networks`** to list options.
+- **Write operations** (`transfer_native_token`, `transfer_erc20`, `transfer_nft`, `transfer_erc1155`, `approve_token_spending`, `write_contract`, `register_erc8004_agent`, `set_erc8004_agent_uri`, Greenfield writes): **`network` is REQUIRED.** There is no default for writes. If the user does not specify the network, you **MUST ask** before calling the tool. Do not assume or default to mainnet (`bsc`); accidental mainnet execution causes irreversible financial loss.
 
 ### Tool categories
 
@@ -111,7 +112,7 @@ For **parameter names, examples, and detailed usage** of each tool, use:
 ## 6. Safety and best practices
 
 1. **Confirm before sending transactions:** For `transfer_*`, `write_contract`, or `approve_token_spending`, confirm recipient, amount, and network before calling the tool.
-2. **Prefer testnet** when the network is unspecified for writes or agent registration.
+2. **Network required for writes:** For any write (transfers, `write_contract`, `approve_token_spending`, ERC-8004 register/set_uri), you **MUST** have an explicit network from the user. If not specified, **ask** — do not default to mainnet. Do not use advisory language like "prefer testnet" as a substitute; the constraint is: no network specified → do not call the write tool until the user confirms.
 3. **Private keys:** Only in MCP server `env`; never in chat or logs.
 4. **ERC-8004 agentURI:** JSON metadata per the Agent Metadata Profile (name, description, image, services e.g. MCP endpoint).
 
