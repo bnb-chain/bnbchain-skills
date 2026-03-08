@@ -25,6 +25,24 @@ Skills are structured knowledge files that give AI coding agents domain-specific
 | Skill | Description |
 |-------|-------------|
 | **bnbchain-mcp-skill** | Install and use BNB Chain MCP — blocks, transactions, contracts, tokens, NFTs, wallet, ERC-8004 agents, Greenfield. Covers connection, credentials, and every MCP tool. |
+| **bsc-honeypot-check** | Pre-trade risk check for sell restrictions, tax anomalies, and liquidity signals. |
+| **bsc-rpc-fanout-check** | Multi-endpoint RPC health and consistency checks for BSC reads. |
+| **crowding-risk-scan** | Crowd positioning signal for potential squeeze/reversal risk. |
+| **funding-basis-carry-scan** | Funding and basis spread scan for carry setup monitoring. |
+| **funding-watch** | Funding-rate and basis monitor for derivatives risk context. |
+| **kline-brief** | Quick kline summary workflow for short-form market context. |
+| **liquidation-heatmap** | Liquidation cluster awareness for volatility zones. |
+| **open-interest-scan** | Open-interest and flow shift scan for momentum/risk checks. |
+| **price-snapshot** | Fast spot price and 24h delta snapshot. |
+| **symbol-status** | Symbol trading status check (active/limited states). |
+| **top-movers** | Top symbol movers ranking by change/volume filters. |
+| **four-meme-agentic-ops** | Agentic decision workflow for Four.meme launch and operation steps. |
+| **four-meme-create-pipeline** | Two-step Four.meme token creation pipeline with confirmation gates. |
+| **four-meme-graduation-radar** | Graduation-stage monitoring workflow for Four.meme projects. |
+| **four-meme-mempool-sentinel** | Read-first mempool watch workflow for Four.meme early signals. |
+| **four-meme-one-stop-bsc** | End-to-end Four.meme on BSC operation playbook. |
+| **four-meme-tax-token-guard** | Tax-token mode risk-check and operation guardrails for Four.meme. |
+| **four-meme-trade-playbook** | Structured Four.meme trade preparation and execution checklist. |
 
 ## Installation
 
@@ -79,13 +97,17 @@ Example prompts:
 ```
 bnbchain-skills/
 ├── skills/
-│   └── bnbchain-mcp-skill/
+│   ├── bnbchain-mcp-skill/
 │       ├── SKILL.md                    # Main skill: install + tool usage
 │       └── references/
 │           ├── evm-tools-reference.md     # Blocks, transactions, contracts, tokens, NFT, wallet, network
 │           ├── erc8004-tools-reference.md  # ERC-8004 agent tools
 │           ├── greenfield-tools-reference.md # Greenfield storage & payment tools
 │           └── prompts-reference.md         # MCP prompts
+│   ├── bsc-honeypot-check/
+│   │   └── SKILL.md                    # Pre-trade token risk checks
+│   └── top-movers/
+│       └── SKILL.md                    # Market mover ranking workflow
 ├── LICENSE
 └── README.md
 ```
