@@ -36,6 +36,13 @@ Skills are structured knowledge files that give AI coding agents domain-specific
 | **price-snapshot** | Fast spot price and 24h delta snapshot. |
 | **symbol-status** | Symbol trading status check (active/limited states). |
 | **top-movers** | Top symbol movers ranking by change/volume filters. |
+| **four-meme-agentic-ops** | Agentic decision workflow for Four.meme launch and operation steps. |
+| **four-meme-create-pipeline** | Two-step Four.meme token creation pipeline with confirmation gates. |
+| **four-meme-graduation-radar** | Graduation-stage monitoring workflow for Four.meme projects. |
+| **four-meme-mempool-sentinel** | Read-first mempool watch workflow for Four.meme early signals. |
+| **four-meme-one-stop-bsc** | End-to-end Four.meme on BSC operation playbook. |
+| **four-meme-tax-token-guard** | Tax-token mode risk-check and operation guardrails for Four.meme. |
+| **four-meme-trade-playbook** | Structured Four.meme trade preparation and execution checklist. |
 
 ## Installation
 
