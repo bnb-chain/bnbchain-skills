@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNB Chain Skills</title>
+<meta name="description" content="Live BNB Chain Skills terminal — blocks, transactions, contracts, tokens, NFTs, ERC-8004 agents, Greenfield storage.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b0e11;--bg2:#1e2329;--bg3:#2b3139;--border:#2e3440;
+  --text:#eaecef;--text-muted:#848e9c;--accent:#f0b90b;
+  --green:#0ecb81;--red:#f6465d;--blue:#1e88e5;--sp:8px;
+}
+html,body{height:100%;overflow:hidden}
+body{zoom:1.05}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;flex-direction:column}
+a{color:var(--accent);text-decoration:none}
+
+/* Header */
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:42px;flex-shrink:0}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo{font-size:14px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
+.logo span{color:var(--accent)}
+
+/* Layout Nav */
+.layout-nav{display:flex;gap:2px}
+.layout-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text-muted);font-size:11px;font-weight:600;padding:4px 12px;border-radius:4px;cursor:pointer;transition:all .15s;white-space:nowrap;box-shadow:0 2px 0 #181c22,0 3px 6px rgba(0,0,0,.3)}
+.layout-btn:hover{color:var(--text);background:#353a44;transform:translateY(-1px);box-shadow:0 3px 0 #181c22,0 5px 10px rgba(0,0,0,.4)}
+.layout-btn:active{transform:translateY(1px);box-shadow:0 1px 0 #181c22}
+.layout-btn.active{color:#0b0e11;background:var(--accent);border-color:var(--accent);box-shadow:0 2px 0 #c99700,0 3px 6px rgba(0,0,0,.3)}
+.layout-btn.active:hover{box-shadow:0 3px 0 #c99700,0 5px 10px rgba(0,0,0,.4)}
+
+.header-right{display:flex;align-items:center;gap:12px}
+.header-link{color:var(--text-muted);font-size:11px;font-weight:600;transition:color .15s}
+.header-link:hover{color:var(--accent);text-decoration:none}
+
+/* Grid */
+.grid{flex:1;display:grid;gap:0;overflow:hidden}
+.grid-2x2{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.grid-2x3{grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr}
+.grid-2x4{grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr}
+.grid-1x1{grid-template-columns:1fr;grid-template-rows:1fr}
+.grid-1x2{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+.grid-1x3{grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr}
+
+/* Panel */
+.panel{border:1px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;overflow:hidden;min-width:0;min-height:0}
+.panel-header{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0;min-height:36px}
+.panel-header>div:first-child{display:flex;align-items:center;gap:8px;min-width:0}
+.panel-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text);white-space:nowrap}
+.panel-skill{font-size:9px;color:var(--accent);padding:1px 6px;border:1px solid var(--accent);letter-spacing:.3px;border-radius:3px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.panel-actions{display:flex;gap:4px}
+.panel-actions button{background:var(--bg3);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;padding:4px 6px;border-radius:3px;transition:all .15s;box-shadow:0 2px 0 #181c22;line-height:0;display:flex;align-items:center}
+.panel-actions button:hover{color:var(--accent);transform:translateY(-1px);box-shadow:0 3px 0 #181c22}
+.panel-actions button:active{transform:translateY(1px);box-shadow:none}
+.panel-actions button svg{display:block}
+.panel-body{flex:1;overflow:auto;padding:var(--sp)}
+.panel-loading{display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:11px}
+.panel-error{padding:var(--sp);color:var(--red);font-size:11px}
+
+/* Tabs inside panels */
+.panel-tabs{display:flex;border-bottom:1px solid var(--border);flex-shrink:0}
+.panel-tab{padding:6px 12px;font-size:10px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:.5px}
+.panel-tab:hover{color:var(--text)}
+.panel-tab.active{color:var(--text);border-bottom-color:var(--accent);font-weight:700}
+
+/* Tables */
+.data-table{width:100%;border-collapse:collapse;font-size:11px}
+.data-table th{text-align:left;padding:4px 8px;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--bg2)}
+.data-table td{padding:4px 8px;border-bottom:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.data-table tr:hover td{background:rgba(240,185,11,.04)}
+
+/* KV rows */
+.kv{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px}
+.kv:last-child{border-bottom:none}
+.kv-label{color:var(--text-muted);font-weight:600;text-transform:uppercase;font-size:10px;letter-spacing:.3px}
+.kv-value{color:var(--text);text-align:right;font-family:'SF Mono',Monaco,Consolas,monospace;font-size:11px}
+
+/* Tag badges */
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px;font-weight:700;text-transform:uppercase}
+.tag-read{background:rgba(14,203,129,.12);color:var(--green)}
+.tag-write{background:rgba(246,70,93,.12);color:var(--red)}
+.tag-prompt{background:rgba(30,136,229,.12);color:var(--blue)}
+
+/* Search inputs inside panels */
+.panel-search{display:flex;gap:6px;margin-bottom:8px}
+.panel-search input{flex:1;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:4px;font-size:11px;font-family:inherit;outline:none}
+.panel-search input:focus{border-color:var(--accent)}
+.panel-search button{background:var(--accent);color:#0b0e11;border:none;padding:6px 14px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer}
+.panel-search button:hover{opacity:.9}
+
+/* Mono */
+.mono{font-family:'SF Mono',Monaco,Consolas,monospace;font-size:11px}
+
+/* Color helpers */
+.c-green{color:var(--green)}
+.c-red{color:var(--red)}
+.c-accent{color:var(--accent)}
+.c-muted{color:var(--text-muted)}
+.c-blue{color:var(--blue)}
+
+/* Status bar */
+.status-bar{background:var(--bg2);border-top:1px solid var(--border);padding:4px 16px;font-size:10px;color:var(--text-muted);display:flex;justify-content:space-between;flex-shrink:0}
+
+/* Skill list in info panels */
+.skill-list{list-style:none;padding:0}
+.skill-list li{padding:6px 0;border-bottom:1px solid var(--border);font-size:11px}
+.skill-list li:last-child{border-bottom:none}
+.skill-list .s-name{color:var(--accent);font-family:'SF Mono',Monaco,Consolas,monospace;font-weight:600;font-size:11px}
+.skill-list .s-desc{color:var(--text-muted);margin-left:8px}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+
+/* Mobile */
+@media(max-width:900px){
+  body{zoom:1}
+  .grid{grid-template-columns:1fr!important;grid-template-rows:auto!important;overflow:auto}
+  .panel{min-height:260px}
+  .header{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px}
+  .header-left{flex-direction:column;align-items:flex-start;gap:6px;width:100%}
+  .layout-nav{flex-wrap:wrap;gap:4px}
+  .layout-btn{padding:3px 8px;font-size:10px}
+  .header-right{width:100%;justify-content:flex-end}
+  .panel-search{flex-direction:column}
+  .panel-search input{width:100%}
+  .data-table td{max-width:120px}
+}
+@media(max-width:480px){
+  .panel{min-height:220px}
+  .panel-header{padding:6px 8px}
+  .panel-body{padding:6px}
+  .panel-skill{display:none}
+  .kv{flex-direction:column;gap:2px}
+  .kv-value{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">BNB Chain <span>Skills</span></div>
+    <nav class="layout-nav">
+      <button class="layout-btn active" data-layout="all">All</button>
+      <button class="layout-btn" data-layout="evm">EVM</button>
+      <button class="layout-btn" data-layout="tokens">Tokens</button>
+      <button class="layout-btn" data-layout="greenfield">Greenfield</button>
+      <button class="layout-btn" data-layout="erc8004">ERC-8004</button>
+      <button class="layout-btn" data-layout="live">Live</button>
+      <button class="layout-btn" data-layout="community">Community</button>
+      <button class="layout-btn" data-layout="mefai">Mefai</button>
+    </nav>
+  </div>
+  <div class="header-right">
+    <a href="https://github.com/bnb-chain/bnbchain-skills" class="header-link">GitHub</a>
+    <a href="https://mefai.io/superbsc" class="header-link">SuperBSC</a>
+  </div>
+</div>
+
+<div id="grid" class="grid grid-2x4"></div>
+
+<div class="status-bar">
+  <span>Not an official Binance product. Open-source community project built on BNB Chain MCP.</span>
+  <span>Powered by <a href="https://mefai.io" style="color:var(--accent)">Mefai</a></span>
+</div>
+
+<script src="js/api.js?v=10"></script>
+<script src="js/base-panel.js?v=10"></script>
+<script src="js/panels.js?v=10"></script>
+<script src="js/app.js?v=10"></script>
+</body>
+</html>

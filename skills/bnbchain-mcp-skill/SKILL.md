@@ -22,7 +22,7 @@ How to connect to the BNB Chain MCP server and use its tools: blocks, transactio
 
 ## 1. MCP server config
 
-Add the `bnbchain-mcp` server to the MCP client config (e.g. Cursor MCP settings, Claude Desktop `claude_desktop_config.json`).
+Add the `bnbchain-mcp` server to your MCP client config (e.g. your IDE's MCP settings or `mcp_config.json`).
 
 **Default (stdio):**
 
