@@ -24,7 +24,6 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | get_transaction | Get transaction by hash | `txHash`, `network` |
-| get_transaction_receipt | Get receipt by hash | `txHash`, `network` |
 | estimate_gas | Estimate gas for a tx | `to`, `value` (optional, e.g. "0.1"), `data` (optional hex), `network` |
 
 ---
@@ -84,18 +83,6 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 |------|-------------|------------|
 | get_nft_info | ERC721 metadata, owner | `tokenAddress`, `tokenId`, `network` |
 | get_erc1155_token_metadata | ERC1155 token metadata | `tokenAddress`, `tokenId`, `network` |
-| check_nft_ownership | Whether address owns NFT | (Check with get_nft_info or contract read if available) |
-| get_nft_balance | NFT count for address in collection | (Use read_contract with balanceOf if needed) |
-| get_erc1155_balance | Balance of ERC1155 token ID for address | (Use read_contract with balanceOf if needed) |
 
 Transfer tools: see **Wallet and balances** above (`transfer_nft`, `transfer_erc1155`).
 
----
-
-## ENS
-
-| Tool | Description | Parameters |
-|------|-------------|------------|
-| resolve_ens | Resolve ENS name to address | `ensName`, `network` (typically ethereum) |
-
-Note: ENS is not supported on BSC; use on Ethereum or other chains where ENS is deployed.
