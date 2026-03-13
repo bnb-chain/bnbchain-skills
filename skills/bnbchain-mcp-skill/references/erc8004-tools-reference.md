@@ -60,3 +60,24 @@ Get the verified payment wallet address for an ERC-8004 agent (for x402 / agent 
 | network | string | Network name or chain ID (optional; default `bsc`) |
 
 **Returns:** `agentId`, `agentWallet`, `network`.
+
+---
+
+### Agent Metadata Profile Example
+
+The `agentURI` must point to a JSON file with the following structure:
+
+```json
+{
+  "name": "My Agent",
+  "description": "Description of the agent's capabilities",
+  "image": "https://example.com/agent-avatar.png",
+  "services": [
+    {
+      "name": "Trading",
+      "description": "Automated trading service",
+      "url": "https://example.com/api"
+    }
+  ]
+}
+```
