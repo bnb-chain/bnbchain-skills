@@ -40,7 +40,7 @@ Add the `bnbchain-mcp` server to the MCP client config (e.g. Cursor MCP settings
 }
 ```
 
-**SSE mode:** `"args": ["-y", "@bnb-chain/mcp@latest", "--sse"]` (and client SSE URL if required). **Local dev server** (e.g. `bun dev:sse` in bnbchain-mcp): `"url": "http://localhost:3001/sse"` with the same `env`.
+**SSE mode:** `"args": ["-y", "@bnb-chain/mcp@latest", "--sse"]`. Clients connect to `http://localhost:3001/sse` (or custom PORT). Set the `PORT` environment variable to configure the SSE server port (default: 3001). **Local dev server** (e.g. `bun dev:sse` in bnbchain-mcp): `"url": "http://localhost:3001/sse"` with the same `env`.
 
 Restart or reload the MCP client after changing config so the server starts.
 
@@ -50,13 +50,14 @@ Restart or reload the MCP client after changing config so the server starts.
 
 - **RPC:** Built-in for default chains.
 - **PRIVATE_KEY:** Set in the server’s `env` when state-changing tools are needed; leave empty for read-only. Do not commit or echo keys.
+- **LOG_LEVEL:** Set `LOG_LEVEL` to `DEBUG`, `INFO`, `WARN`, or `ERROR` for MCP server logging.
 
 ---
 
 ## 3. Agent registration (ERC-8004)
 
 1. Register the agent on-chain with the MCP tool **`register_erc8004_agent`** (see [references/erc8004-tools-reference.md](references/erc8004-tools-reference.md)).
-2. Owners can then check registration on 8004scan (mainnet) or 8004scan (testnet).
+2. Owners can then verify registration on the [8004scan](https://8004scan.com) explorer (mainnet or testnet).
 
 ---
 
