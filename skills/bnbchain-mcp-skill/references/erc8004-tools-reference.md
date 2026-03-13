@@ -1,6 +1,6 @@
 # ERC-8004 agent tools reference
 
-Register and resolve AI agents on the ERC-8004 Identity Registry. Supported networks: BSC (56), BSC Testnet (97), Ethereum, Base, Polygon, and their testnets where the official registry is deployed.
+Register and resolve AI agents on the ERC-8004 Identity Registry. Supported networks: BSC (56), BSC Testnet (97), Ethereum (1), Sepolia (11155111), Base (8453), Base Sepolia (84532), Polygon (137), Polygon Amoy (80002), Arbitrum (42161), Arbitrum Sepolia (421614).
 
 **agentURI** must point to a JSON metadata file following the Agent Metadata Profile: name, description, image, and `services` (e.g. MCP endpoint).
 
