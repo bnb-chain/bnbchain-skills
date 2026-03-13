@@ -43,9 +43,7 @@ If the server exposes **gnfd_create_file** instead of **gnfd_upload_object**, us
 | gnfd_get_payment_accounts | Payment accounts for an address | `network`, `address` (optional), `privateKey` |
 | gnfd_get_payment_account_info | Details of a payment account | `network`, account identifier (see implementation) |
 | gnfd_create_payment | **(Write)** Create a payment account | `network`, `privateKey` |
-| gnfd_get_payment_balance | Payment account balance | `network`, account identifier |
 | gnfd_deposit_to_payment | **(Write)** Deposit into payment account | `network`, `to` (payment account address), `amount` (string, in BNB), `privateKey` |
 | gnfd_withdraw_from_payment | **(Write)** Withdraw from payment account | `network`, `from`, `amount`, `privateKey` |
-| gnfd_disable_refund | **(Write, IRREVERSIBLE)** Disable refund for payment account | `network`, `address`, `privateKey` (if exposed) |
 
 Use **get_supported_networks** or the MCP server’s tool list to confirm exact parameter names for the version in use.
