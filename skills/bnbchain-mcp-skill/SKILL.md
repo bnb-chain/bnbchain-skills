@@ -40,6 +40,8 @@ Add the `bnbchain-mcp` server to the MCP client config (e.g. Cursor MCP settings
 }
 ```
 
+> **Security Warning:** The config file contains your `PRIVATE_KEY`. Add your MCP config file to `.gitignore` and never commit it to version control. Prefer using environment variables for key management in production.
+
 **SSE mode:** `"args": ["-y", "@bnb-chain/mcp@latest", "--sse"]` (and client SSE URL if required). **Local dev server** (e.g. `bun dev:sse` in bnbchain-mcp): `"url": "http://localhost:3001/sse"` with the same `env`.
 
 Restart or reload the MCP client after changing config so the server starts.
@@ -113,7 +115,7 @@ For **parameter names, examples, and detailed usage** of each tool, use:
 
 1. **Confirm before sending transactions:** For `transfer_*`, `write_contract`, or `approve_token_spending`, confirm recipient, amount, and network before calling the tool.
 2. **Network required for writes:** For any write (transfers, `write_contract`, `approve_token_spending`, ERC-8004 register/set_uri), you **MUST** have an explicit network from the user. If not specified, **ask** — do not default to mainnet. Do not use advisory language like "prefer testnet" as a substitute; the constraint is: no network specified → do not call the write tool until the user confirms.
-3. **Private keys:** Only in MCP server `env`; never in chat or logs.
+3. **Private keys:** Only in MCP server `env`; never in chat or logs. When possible, use the `PRIVATE_KEY` environment variable instead of passing the key directly as a tool parameter. Direct parameter passing exposes the key in the tool call payload.
 4. **ERC-8004 agentURI:** JSON metadata per the Agent Metadata Profile (name, description, image, services e.g. MCP endpoint).
 
 ---
