@@ -60,3 +60,7 @@ Get the verified payment wallet address for an ERC-8004 agent (for x402 / agent 
 | network | string | Network name or chain ID (optional; default `bsc`) |
 
 **Returns:** `agentId`, `agentWallet`, `network`.
+
+---
+
+For the full ERC-8004 specification, see [EIP-8004](https://eips.ethereum.org/EIPS/eip-8004).
