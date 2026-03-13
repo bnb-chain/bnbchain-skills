@@ -75,6 +75,7 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | get_erc20_token_info | Name, symbol, decimals | `tokenAddress`, `network` |
+| create_erc20_token | Deploy a new ERC20 token contract | `name` (required), `symbol` (required), `network` (required), `privateKey` (required, or env PRIVATE_KEY) | **(Write)** |
 
 ---
 
