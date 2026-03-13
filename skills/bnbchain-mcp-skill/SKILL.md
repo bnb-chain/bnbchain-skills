@@ -93,6 +93,7 @@ Use the MCP prompt names when the user wants analysis or guidance:
 - **compare_networks** — Compare EVM-compatible networks
 - **analyze_token** — Analyze an ERC20 or NFT token
 - **how_to_register_mcp_as_erc8004_agent** — Guidance on registering MCP as ERC-8004 agent
+- **analyze_overdue_buckets** — Analyze buckets with overdue payments or low balance
 
 ---
 
