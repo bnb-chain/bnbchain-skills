@@ -1,6 +1,6 @@
 ---
 name: bnbchain-mcp
-displayName: bnbchain-mcp
+displayName: BNB Chain MCP
 version: 1.0.0
 description: BNB Chain MCP server connection and tool usage. Covers npx @bnb-chain/mcp@latest, PRIVATE_KEY and RPC, and every MCP tool — blocks, transactions, contracts, ERC20/NFT transfers, wallet, ERC-8004 agent registration, Greenfield. Use when connecting to bnbchain-mcp, querying or transacting on BNB Chain/opBNB/EVM, registering as ERC-8004 agent, or using Greenfield.
 ---
