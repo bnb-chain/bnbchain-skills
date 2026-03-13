@@ -34,6 +34,8 @@ Skills are structured knowledge files that give AI coding agents domain-specific
 npx skills add bnb-chain/bnbchain-skills
 ```
 
+> The `skills` CLI is from [cursor-skills](https://www.npmjs.com/package/cursor-skills).
+
 Install globally (available across all projects):
 
 ```bash
@@ -42,11 +44,18 @@ npx skills add bnb-chain/bnbchain-skills -g
 
 ### Manual Install (Cursor / Claude)
 
-**Personal skill** (available across all projects):
+**Personal skill — Cursor** (available across all projects):
 
 ```bash
 git clone https://github.com/bnb-chain/bnbchain-skills.git
 cp -r bnbchain-skills/skills/* ~/.cursor/skills/
+```
+
+**Personal skill — Claude Code:**
+
+```bash
+git clone https://github.com/bnb-chain/bnbchain-skills.git
+cp -r bnbchain-skills/skills/* ~/.claude/skills/
 ```
 
 **Project skill** (current project only):
