@@ -14,8 +14,8 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | get_latest_block | Get the latest block | `network` (optional) |
-| get_block_by_number | Get a block by number | `blockNumber` (string), `network` |
-| get_block_by_hash | Get a block by hash | `blockHash`, `network` |
+| get_block_by_number | Get a block by number | `blockNumber` (string), `network` (optional, default bsc) |
+| get_block_by_hash | Get a block by hash | `blockHash`, `network` (optional, default bsc) |
 
 ---
 
@@ -25,7 +25,7 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 |------|-------------|------------|
 | get_transaction | Get transaction by hash | `txHash`, `network` |
 | get_transaction_receipt | Get receipt by hash | `txHash`, `network` |
-| estimate_gas | Estimate gas for a tx | `to`, `value` (optional, e.g. "0.1"), `data` (optional hex), `network` |
+| estimate_gas | Estimate gas for a tx | `to` (required), `value` (optional, e.g. "0.1"), `data` (optional hex), `network` (optional, default bsc) |
 
 ---
 
@@ -33,7 +33,7 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 
 | Tool | Description | Parameters |
 |------|-------------|------------|
-| get_chain_info | Chain ID, block number, RPC URL | `network` |
+| get_chain_info | Chain ID, block number, RPC URL | `network` (optional, default bsc) |
 | get_supported_networks | List supported networks | (none) |
 
 ---
