@@ -12,7 +12,7 @@ Greenfield tools operate on **testnet** or **mainnet**. Use **`network`**: `"tes
 |------|-------------|------------|
 | gnfd_list_buckets | List buckets owned by an address | `network`, `address` (optional), `privateKey` (optional for default account) |
 | gnfd_get_bucket_info | Bucket details | `network`, `bucketName` |
-| gnfd_get_bucket_full_info | Bucket info and quota usage | `network`, `bucketName`, `privateKey` |
+| gnfd_get_bucket_full_info | Bucket info and quota usage | `network`, `bucketName`, `privateKey` (optional, defaults to env PRIVATE_KEY) |
 | gnfd_create_bucket | **(Write)** Create a bucket | `network`, `privateKey`, `bucketName` |
 | gnfd_delete_bucket | **(Write)** Delete a bucket | `network`, `privateKey`, `bucketName` |
 
@@ -27,7 +27,7 @@ Greenfield tools operate on **testnet** or **mainnet**. Use **`network`**: `"tes
 | gnfd_list_objects | List objects in a bucket | `network`, `bucketName` |
 | gnfd_get_object_info | Object details | `network`, `bucketName`, `objectName` |
 | gnfd_upload_object / gnfd_create_file | **(Write)** Upload a file to a bucket | `network`, `privateKey`, `filePath` (absolute path to file), `bucketName` |
-| gnfd_download_object | Download object to disk | `network`, `bucketName`, `objectName`, `targetPath` (optional), `privateKey` |
+| gnfd_download_object | Download object to disk | `network`, `bucketName`, `objectName`, `targetPath` (optional), `privateKey` (optional, defaults to env PRIVATE_KEY) |
 | gnfd_delete_object | **(Write)** Delete an object | `network`, `privateKey`, `bucketName`, `objectName` |
 | gnfd_create_folder | **(Write)** Create a folder in a bucket | `network`, `privateKey`, `bucketName`, `folderName` (optional) |
 
@@ -40,7 +40,7 @@ If the server exposes **gnfd_create_file** instead of **gnfd_upload_object**, us
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | gnfd_get_account_balance | Balance for a Greenfield account | `network`, address/privateKey as per implementation |
-| gnfd_get_payment_accounts | Payment accounts for an address | `network`, `address` (optional), `privateKey` |
+| gnfd_get_payment_accounts | Payment accounts for an address | `network`, `address` (optional), `privateKey` (optional, defaults to env PRIVATE_KEY) |
 | gnfd_get_payment_account_info | Details of a payment account | `network`, account identifier (see implementation) |
 | gnfd_create_payment | **(Write)** Create a payment account | `network`, `privateKey` |
 | gnfd_get_payment_balance | Payment account balance | `network`, account identifier |
