@@ -43,15 +43,15 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | get_address_from_private_key | Derive EVM address from private key | `privateKey` (or env PRIVATE_KEY) |
-| get_native_balance | Native token balance (BNB, ETH, etc.) | `address` (optional) or `privateKey`, `network` |
-| get_erc20_balance | ERC20 balance for an address | `tokenAddress`, `address`, `network` (and optionally `privateKey` for default address) |
+| get_native_balance | Native token balance (BNB, ETH, etc.) | `address` (optional, derived from privateKey if omitted), `privateKey` (optional), `network` |
+| get_erc20_balance | ERC20 balance for an address | `tokenAddress`, `address` (required), `network`, `privateKey` (optional, for default address) |
 
 **(Write)** — require PRIVATE_KEY in env:
 
 | Tool | Description | Parameters |
 |------|-------------|------------|
-| transfer_native_token | Send native token | `privateKey`, `toAddress`, `amount` (string e.g. "0.1"), `network` |
-| transfer_erc20 | Send ERC20 tokens | `privateKey`, `tokenAddress`, `toAddress`, `amount` (string), `network` |
+| transfer_native_token | Send native token | `privateKey`, `toAddress` (address or ENS name), `amount` (string e.g. "0.1"), `network` |
+| transfer_erc20 | Send ERC20 tokens | `privateKey`, `tokenAddress`, `toAddress` (address or ENS name), `amount` (string), `network` |
 | approve_token_spending | Approve spender for ERC20 | `privateKey`, `tokenAddress`, `spenderAddress`, `amount` (string), `network` |
 | transfer_nft | Transfer ERC721 NFT | `privateKey`, `tokenAddress`, `tokenId`, `toAddress`, `network` |
 | transfer_erc1155 | Transfer ERC1155 | `privateKey`, `tokenAddress`, `tokenId`, `amount`, `toAddress`, `network` |
