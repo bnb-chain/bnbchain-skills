@@ -2,7 +2,7 @@
 
 **`network`**: string like `bsc`, `opbnb`, `ethereum`, `base`, or chain ID. Use **get_supported_networks** to list options.
 
-- **Read-only tools:** `network` is optional; default is `bsc`.
+- **Read-only tools:** `network` is optional; default is `bsc-testnet`.
 - **Write tools** (`transfer_native_token`, `transfer_erc20`, `transfer_nft`, `transfer_erc1155`, `approve_token_spending`, `write_contract`): **`network` is REQUIRED.** No default. If the user does not specify the network, the agent MUST ask before calling; do not default to mainnet.
 
 Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(write)**.

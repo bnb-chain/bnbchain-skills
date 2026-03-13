@@ -44,7 +44,7 @@ Get agent info from the ERC-8004 Identity Registry: owner address and tokenURI (
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | agentId | string or number | ERC-8004 agent ID (token ID) |
-| network | string | Network name or chain ID (optional; default `bsc`) |
+| network | string | Network name or chain ID (optional; default `bsc-testnet`) |
 
 **Returns:** `agentId`, `owner`, `tokenURI`, `network`.
 
@@ -57,6 +57,6 @@ Get the verified payment wallet address for an ERC-8004 agent (for x402 / agent 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | agentId | string or number | ERC-8004 agent ID (token ID) |
-| network | string | Network name or chain ID (optional; default `bsc`) |
+| network | string | Network name or chain ID (optional; default `bsc-testnet`) |
 
 **Returns:** `agentId`, `agentWallet`, `network`.

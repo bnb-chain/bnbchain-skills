@@ -22,7 +22,7 @@ How to connect to the BNB Chain MCP server and use its tools: blocks, transactio
 
 ## 1. MCP server config
 
-Add the `bnbchain-mcp` server to the MCP client config (e.g. Cursor MCP settings, Claude Desktop `claude_desktop_config.json`).
+Add the `bnbchain-mcp` server to your MCP client config (e.g. your IDE's MCP settings or `mcp_config.json`).
 
 **Default (stdio):**
 
@@ -64,7 +64,7 @@ Restart or reload the MCP client after changing config so the server starts.
 
 ### Network parameter
 
-- **Read-only tools** (blocks, balances, contract reads, get_chain_info, etc.): **`network`** is optional; default is `bsc`. Use **`get_supported_networks`** to list options.
+- **Read-only tools** (blocks, balances, contract reads, get_chain_info, etc.): **`network`** is optional; default is `bsc-testnet`. Use **`get_supported_networks`** to list options.
 - **Write operations** (`transfer_native_token`, `transfer_erc20`, `transfer_nft`, `transfer_erc1155`, `approve_token_spending`, `write_contract`, `register_erc8004_agent`, `set_erc8004_agent_uri`, Greenfield writes): **`network` is REQUIRED.** There is no default for writes. If the user does not specify the network, you **MUST ask** before calling the tool. Do not assume or default to mainnet (`bsc`); accidental mainnet execution causes irreversible financial loss.
 
 ### Tool categories
