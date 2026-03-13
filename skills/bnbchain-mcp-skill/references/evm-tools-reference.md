@@ -25,7 +25,7 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 |------|-------------|------------|
 | get_transaction | Get transaction by hash | `txHash`, `network` |
 | get_transaction_receipt | Get receipt by hash | `txHash`, `network` |
-| estimate_gas | Estimate gas for a tx | `to`, `value` (optional, e.g. "0.1"), `data` (optional hex), `network` |
+| estimate_gas | Estimate gas for a tx | `to` (required), `value` (optional, e.g. "0.1"), `data` (optional, hex-encoded), `network` (optional, default `bsc`) |
 
 ---
 
