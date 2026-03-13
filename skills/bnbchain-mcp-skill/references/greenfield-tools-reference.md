@@ -2,6 +2,13 @@
 
 Greenfield tools operate on **testnet** or **mainnet**. Use **`network`**: `"testnet"` (default) or `"mainnet"`. Writes require **PRIVATE_KEY** in the MCP server env (or passed where supported).
 
+## Network Configuration
+
+| Network | Chain ID | RPC Endpoint |
+|---------|----------|--------------|
+| Greenfield Mainnet | 1017 | https://greenfield-chain.bnbchain.org |
+| Greenfield Testnet | 5600 | https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org |
+
 **Note:** Some tools may be named differently in the implementation (e.g. file upload). Use the tool names exposed by the MCP server; below matches the [BNB Chain MCP README](https://github.com/bnb-chain/bnbchain-mcp) and common usage.
 
 ---
