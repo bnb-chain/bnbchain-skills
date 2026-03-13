@@ -4,6 +4,8 @@ Greenfield tools operate on **testnet** or **mainnet**. Use **`network`**: `"tes
 
 **Note:** Some tools may be named differently in the implementation (e.g. file upload). Use the tool names exposed by the MCP server; below matches the [BNB Chain MCP README](https://github.com/bnb-chain/bnbchain-mcp) and common usage.
 
+> **Important:** Greenfield tools only accept `"testnet"` or `"mainnet"` as network values. EVM network names like `"bsc"` or `"bsc-testnet"` are NOT valid for Greenfield tools and will cause errors.
+
 ---
 
 ## Buckets
