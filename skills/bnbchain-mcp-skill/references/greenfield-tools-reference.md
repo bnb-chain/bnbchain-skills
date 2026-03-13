@@ -35,7 +35,13 @@ If the server exposes **gnfd_create_file** instead of **gnfd_upload_object**, us
 
 ---
 
-## Account and payment
+## Account and info
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| gnfd_get_all_sps | List all Greenfield storage providers | `network` |
+
+## Payment
 
 | Tool | Description | Parameters |
 |------|-------------|------------|
