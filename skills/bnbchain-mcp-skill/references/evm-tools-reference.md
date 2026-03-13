@@ -99,3 +99,22 @@ Transfer tools: see **Wallet and balances** above (`transfer_nft`, `transfer_erc
 | resolve_ens | Resolve ENS name to address | `ensName`, `network` (typically ethereum) |
 
 Note: ENS is not supported on BSC; use on Ethereum or other chains where ENS is deployed.
+
+---
+
+## Response Fields
+
+### get_native_balance
+Returns: `{ balance: string }` — Balance in the native token (e.g., BNB), formatted as a decimal string.
+
+### get_erc20_balance
+Returns: `{ balance: string, symbol: string, decimals: number }` — Token balance adjusted for decimals.
+
+### get_transaction
+Returns: `{ hash, from, to, value, blockNumber, gasPrice, gasUsed, status, input }` — Full transaction details.
+
+### get_block_by_number / get_block_by_hash
+Returns: `{ number, hash, timestamp, transactions, gasUsed, gasLimit, miner }` — Block header with transaction list.
+
+### get_nft_info
+Returns: `{ name, symbol, tokenURI, owner }` — NFT metadata and current owner.
