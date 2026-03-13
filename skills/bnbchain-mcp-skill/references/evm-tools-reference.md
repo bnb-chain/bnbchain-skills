@@ -63,10 +63,10 @@ Tools that require **PRIVATE_KEY** in the MCP server env are marked with **(writ
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | is_contract | Check if address is contract or EOA | `address`, `network` |
-| read_contract | Call view/pure function | `contractAddress`, `abi` (JSON array), `functionName`, `args` (optional array), `network` |
-| write_contract | **(Write)** Call state-changing function | `contractAddress`, `abi`, `functionName`, `args`, `privateKey` (or env), `network` |
+| read_contract | Call view/pure function | `contractAddress`, `abi` (JSON array of ABI entries, e.g. `[{"type":"function","name":"balanceOf",...}]`), `functionName`, `args` (optional array), `network` |
+| write_contract | **(Write)** Call state-changing function | `contractAddress`, `abi` (JSON array of ABI entries), `functionName`, `args` (required array), `privateKey` (or env), `network` |
 
-**read_contract:** Pass the ABI of the single function (or full contract ABI). Example args: `[]` or `["0x...", "123"]`.
+**read_contract / write_contract:** Pass the contract ABI (full or relevant function entries). Example args: `[]` or `["0x...", "123"]`.
 
 ---
 
