@@ -1,101 +1,173 @@
 # BNB Chain Skills
 
-> A collection of AI agent skills for the [BNB Chain MCP](https://github.com/bnb-chain/bnbchain-mcp) (Model Context Protocol) server.
+> 28 professional on-chain analysis tools for BNB Smart Chain. Built by [Mefai](https://mefai.io).
 
-## Introduction
+**Live Demo:** [mefai.io/bnbchain](https://mefai.io/bnbchain)
 
-BNB Chain Skills helps AI agents (e.g. Cursor, Claude) install and use the BNB Chain MCP server effectively. It provides structured knowledge on how to connect the MCP server, configure credentials, and use each available tool for blocks, transactions, contracts, tokens, NFTs, wallet operations, ERC-8004 agent registration, and Greenfield storage.
+## Overview
 
-## Claude/Cursor skills vs OpenClaw skills
+BNB Chain Skills is an open-source collection of real-time blockchain analysis tools built on BSC JSON-RPC and DexScreener APIs. Each skill provides a focused, production-ready analytical capability — from transaction decoding to honeypot detection, from validator monitoring to cross-DEX arbitrage scanning.
 
-| | **This repo (bnbchain-skills)** | **OpenClaw skills** |
-|---|--------------------------------|---------------------|
-| **Who installs** | The **user** installs the skill (e.g. `npx skills add bnb-chain/bnbchain-skills` or copy into `~/.cursor/skills/`). | The **OpenClaw bot** fetches the skill page itself (e.g. `curl` the [OpenClaw Skills](https://docs.bnbchain.org/showcase/mcp/skills) URL) and learns from it. |
-| **Who acts** | The **agent** (Cursor/Claude) reads the skill and then **sets up MCP for the user**—adds the bnbchain-mcp server to the user’s MCP config and uses the tools. | The **OpenClaw bot** autonomously knows the `npx @bnb-chain/mcp@latest` command and installs/uses the MCP based on that page. |
-| **Purpose** | Teach the in-IDE agent to configure bnbchain-mcp in the user’s environment and use every MCP tool. | Give OpenClaw (and similar agents) a single fetchable page so they can discover and use BNB Chain MCP on their own. |
+## Skills
 
-So: **Claude/Cursor skills** = user installs skill → agent uses it to **set MCP for the user** and call tools. **OpenClaw skills** = bot fetches the skill page → bot **installs and uses** MCP autonomously.
+### Security & Auditing
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **Honeypot Check** | Combined honeypot detection: bytecode analysis, buy/sell ratio, owner concentration, dangerous selectors | `/mefai/honeypot-check` |
+| **Contract X-Ray** | Deep bytecode analysis: proxy detection, function scanning, mint/pause/blacklist pattern detection | `/mefai/contract-xray` |
+| **Approval Scanner** | Token approval checker across 9 major DEX routers — finds unlimited allowances | `/mefai/approval-scanner` |
+| **Risk Radar** | Risk scoring (0-100, A-F grade) combining on-chain and market signals | `/mefai/risk-radar` |
+| **Upgrade Monitor** | EIP-1967 proxy contract detection with storage slot inspection, admin identification | `/mefai/upgrade-monitor` |
+| **Contract Audit** | Smart contract security analysis: ownership, proxy, token standards compliance | `/mefai/contract-audit` |
 
-## What are Skills?
+### Alpha & Intelligence
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **Sniper Detector** | Detect bot sniping on any token — early buyer analysis, hold/dump tracking, snipe score | `/mefai/sniper-detector` |
+| **Copy Trade** | Alpha wallet activity monitor — tracks known wallets for token interactions | `/mefai/copy-trade` |
+| **Smart Money** | Whale transaction tracker — identifies large-value transfers in real-time | `/mefai/smart-money` |
+| **Wallet Cluster** | On-chain forensics: discover connected wallets via transfer patterns and shared holdings | `/mefai/wallet-cluster` |
 
-Skills are structured knowledge files that give AI coding agents domain-specific expertise. They follow a portable format that works across different AI tools. When you install a skill, the agent learns how to install bnbchain-mcp and how to use each MCP tool without needing to search external docs.
+### Market Analysis
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **DEX Arbitrage** | Cross-DEX price discrepancy finder with gas-adjusted profit estimates | `/mefai/dex-arb` |
+| **Token Battle** | Side-by-side comparison of up to 4 tokens: price, volume, liquidity, burns | `/mefai/token-battle` |
+| **Token Birth** | Token genesis analysis: creator profile, supply distribution, age, liquidity history | `/mefai/token-birth` |
+| **Pair Analytics** | Deep DEX pair analysis with aggregate stats across multiple pairs | `/mefai/pair-analytics` |
+| **PancakeSwap Arena** | PancakeSwap top pairs, volume leaders, trending tokens | `/mefai/pancakeswap-arena` |
 
-## Available Skills
+### On-Chain Analytics
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **TX Decoder** | Decode any BSC transaction: function calls, events, token transfers, gas breakdown | `/mefai/tx-decoder` |
+| **Block Autopsy** | Block gas distribution, transaction type breakdown, top gas consumers | `/mefai/block-autopsy` |
+| **Token Flow** | Track token transfer movements from recent blocks | `/mefai/token-flow` |
+| **Burn Engine** | Real-time BNB and token burn tracking with USD valuations | `/mefai/burn-tracker` |
+| **Wallet Scanner** | Complete wallet portfolio analysis: BNB + token balances with USD values | `/mefai/wallet-scanner` |
+| **Portfolio Heatmap** | Bloomberg-style portfolio view with 24h performance heatmap | `/mefai/portfolio-heatmap` |
 
-| Skill | Description |
-|-------|-------------|
-| **bnbchain-mcp-skill** | Install and use BNB Chain MCP — blocks, transactions, contracts, tokens, NFTs, wallet, ERC-8004 agents, Greenfield. Covers connection, credentials, and every MCP tool. |
+### Network & Infrastructure
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **Validator Map** | Live BSC validator monitoring: 21 validators, gas utilization, block production, MEV detection | `/mefai/validator-map` |
+| **Network Pulse** | Network congestion gauge: pressure score, TPS, block timing, gas optimization | `/mefai/network-pulse` |
+| **BSC Supremacy** | BSC vs Ethereum comparison: speed, cost, TPS — live data | `/mefai/bsc-supremacy` |
+| **Gas Calculator** | Operation cost estimator: 10 operations with BSC vs ETH cost comparison | `/mefai/gas-calculator` |
+| **Chain Vitals** | Core network health metrics: block height, gas price, peer count | `/mefai/chain-vitals` |
 
-## Installation
+### DeFi
+| Skill | Description | API Endpoint |
+|-------|-------------|-------------|
+| **Yield Finder** | APY estimation from trading fee revenue, sorted by opportunity | `/mefai/yield-finder` |
+| **DeFi Leaderboard** | Top DeFi protocols ranked by TVL, volume, and user count | `/mefai/defi-leaderboard` |
+| **Liquidity Pulse** | Real-time liquidity depth analysis across major BSC pairs | `/mefai/liquidity-pulse` |
 
-### Quick Install (Recommended)
+## Architecture
+
+```
++----------------------------------------------+
+|              Frontend (Web Components)        |
+|  50 panels - _MX premium CSS - BasePanel      |
+|  Stale-while-revalidate cache - Auto-refresh  |
++----------------------------------------------+
+|              API Layer (FastAPI)               |
+|  28 /mefai/* endpoints - async - TTL cache    |
++----------------------------------------------+
+|            Data Sources                        |
+|  BSC JSON-RPC - DexScreener - BscScan         |
++----------------------------------------------+
+```
+
+### Tech Stack
+- **Frontend:** Vanilla JS Web Components, zero dependencies
+- **Backend:** Python FastAPI with async/await, stale-while-revalidate caching
+- **Data:** BSC JSON-RPC (bsc-dataseed1.binance.org), DexScreener API, BscScan API
+- **Deployment:** Nginx reverse proxy, systemd services
+
+## API Reference
+
+All endpoints are served under `/superbsc/api/bnbchain/mefai/`.
+
+### Authentication
+No authentication required. All endpoints are public and rate-limited via caching.
+
+### Common Response Pattern
+```json
+{
+  "field1": "value",
+  "field2": 123,
+  "error": null
+}
+```
+
+Error responses:
+```json
+{
+  "error": "Description of what went wrong"
+}
+```
+
+### Example Requests
 
 ```bash
-npx skills add bnb-chain/bnbchain-skills
+# Honeypot check
+curl https://mefai.io/superbsc/api/bnbchain/mefai/honeypot-check?address=0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82
+
+# Network pulse
+curl https://mefai.io/superbsc/api/bnbchain/mefai/network-pulse
+
+# Validator map
+curl https://mefai.io/superbsc/api/bnbchain/mefai/validator-map
+
+# Gas calculator
+curl https://mefai.io/superbsc/api/bnbchain/mefai/gas-calculator
 ```
 
-Install globally (available across all projects):
+## Self-Hosting
 
+### Prerequisites
+- Python 3.11+
+- Node.js 18+ (for frontend dev only)
+- Nginx (production)
+
+### Setup
+
+1. Clone the repository:
 ```bash
-npx skills add bnb-chain/bnbchain-skills -g
+git clone https://github.com/mefai-dev/bnbchain-skills.git
+cd bnbchain-skills
 ```
 
-### Manual Install (Cursor / Claude)
-
-**Personal skill** (available across all projects):
-
+2. Install Python dependencies:
 ```bash
-git clone https://github.com/bnb-chain/bnbchain-skills.git
-cp -r bnbchain-skills/skills/* ~/.cursor/skills/
+pip install fastapi uvicorn httpx
 ```
 
-**Project skill** (current project only):
-
+3. Start the backend:
 ```bash
-git clone https://github.com/bnb-chain/bnbchain-skills.git
-cp -r bnbchain-skills/skills/* .cursor/skills/
+uvicorn api.main:app --host 127.0.0.1 --port 8202
 ```
 
-### Using the skill
+4. Serve the frontend:
+```bash
+# Development
+python -m http.server 8080 --directory frontend
 
-Once installed, the agent will use the skill when you ask to:
-
-- Install or connect BNB Chain MCP
-- Query blocks, transactions, balances, or contracts on BNB Chain or other EVM networks
-- Transfer tokens or NFTs, or interact with smart contracts
-- Register or resolve ERC-8004 agents
-- Use Greenfield storage (buckets, objects, payments)
-
-Example prompts:
-
-- "How do I install bnbchain-mcp in Cursor?"
-- "Get the latest block on BSC"
-- "Check the ERC-20 balance of 0x... on opBNB"
-- "Register this MCP as an ERC-8004 agent"
-- "List my Greenfield buckets"
-
-## Skill Structure
-
-```
-bnbchain-skills/
-├── skills/
-│   └── bnbchain-mcp-skill/
-│       ├── SKILL.md                    # Main skill: install + tool usage
-│       └── references/
-│           ├── evm-tools-reference.md     # Blocks, transactions, contracts, tokens, NFT, wallet, network
-│           ├── erc8004-tools-reference.md  # ERC-8004 agent tools
-│           ├── greenfield-tools-reference.md # Greenfield storage & payment tools
-│           └── prompts-reference.md         # MCP prompts
-├── LICENSE
-└── README.md
+# Production: configure nginx to serve frontend/ as static and proxy /api to port 8202
 ```
 
-## References
+## Contributing
 
-- **BNB Chain MCP:** https://github.com/bnb-chain/bnbchain-mcp
-- **npm package:** `@bnb-chain/mcp` — run with `npx @bnb-chain/mcp@latest`
-- **ERC-8004** (Identity Registry); **Agent Metadata Profile** for agentURI format.
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Related Projects
+
+- [BNB Chain MCP](https://github.com/bnb-chain/bnbchain-mcp) — Model Context Protocol server for BNB Chain
+- [Binance Skills Hub](https://github.com/binance/binance-skills-hub) — Official Binance skills collection
 
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
+
+Built by [Mefai](https://mefai.io) for the BNB Chain community.
