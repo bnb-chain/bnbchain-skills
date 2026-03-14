@@ -22,7 +22,7 @@ How to connect to the BNB Chain MCP server and use its tools: blocks, transactio
 
 ## 1. MCP server config
 
-Add the `bnbchain-mcp` server to the MCP client config (e.g. Cursor MCP settings, Claude Desktop `claude_desktop_config.json`).
+Add the `bnbchain-mcp` server to your MCP client config (e.g. your IDE's MCP settings or `mcp_config.json`).
 
 **Default (stdio):**
 
@@ -56,7 +56,7 @@ Restart or reload the MCP client after changing config so the server starts.
 ## 3. Agent registration (ERC-8004)
 
 1. Register the agent on-chain with the MCP tool **`register_erc8004_agent`** (see [references/erc8004-tools-reference.md](references/erc8004-tools-reference.md)).
-2. Owners can then check registration on 8004scan (mainnet) or 8004scan (testnet).
+2. Owners can verify registration at [8004scan.com](https://8004scan.com) (mainnet) or the testnet explorer.
 
 ---
 
@@ -122,4 +122,4 @@ For **parameter names, examples, and detailed usage** of each tool, use:
 
 - **BNB Chain MCP repo:** https://github.com/bnb-chain/bnbchain-mcp
 - **npm:** `npx @bnb-chain/mcp@latest`
-- **ERC-8004** (Identity Registry); **Agent Metadata Profile** for agentURI format.
+- **ERC-8004 specification:** [EIP-8004](https://eips.ethereum.org/EIPS/eip-8004) (Identity Registry); **Agent Metadata Profile** for agentURI format.
