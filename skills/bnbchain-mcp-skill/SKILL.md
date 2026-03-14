@@ -72,12 +72,12 @@ Restart or reload the MCP client after changing config so the server starts.
 | Category | Examples | Needs PRIVATE_KEY? |
 |----------|----------|--------------------|
 | Blocks | `get_latest_block`, `get_block_by_number`, `get_block_by_hash` | No |
-| Transactions | `get_transaction`, `get_transaction_receipt`, `estimate_gas` | No (estimate only) |
+| Transactions | `get_transaction`, `estimate_gas` | No |
 | Network | `get_chain_info`, `get_supported_networks` | No |
-| Wallet / balance | `get_native_balance`, `get_erc20_balance`, `get_address_from_private_key` | Balance: optional address or privateKey |
+| Wallet / balance | `get_native_balance`, `get_erc20_balance`, `get_address_from_private_key` | No (read-only) |
 | Transfers / writes | `transfer_native_token`, `transfer_erc20`, `transfer_nft`, `transfer_erc1155`, `approve_token_spending`, `write_contract` | Yes |
 | Contracts | `read_contract`, `is_contract` | No for read |
-| Tokens / NFT | `get_erc20_token_info`, `get_nft_info`, `get_erc1155_token_metadata`, `check_nft_ownership`, `get_nft_balance`, `get_erc1155_balance` | No for read |
+| Tokens / NFT | `get_erc20_token_info`, `create_erc20_token`, `get_nft_info`, `get_erc1155_token_metadata` | No for read; `create_erc20_token`: Yes |
 | ERC-8004 | `register_erc8004_agent`, `set_erc8004_agent_uri`, `get_erc8004_agent`, `get_erc8004_agent_wallet` | Register/set_uri: Yes |
 | Greenfield | `gnfd_*` bucket/object/payment tools | Writes: Yes |
 
