@@ -10,7 +10,7 @@ BNB Chain Skills helps AI agents (e.g. Cursor, Claude) install and use the BNB C
 
 | | **This repo (bnbchain-skills)** | **OpenClaw skills** |
 |---|--------------------------------|---------------------|
-| **Who installs** | The **user** installs the skill (e.g. `npx skills@1.5.1 add bnb-chain/bnbchain-skills` or copy into `~/.cursor/skills/`). | The **OpenClaw bot** fetches the skill page itself (e.g. `curl` the [OpenClaw Skills](https://docs.bnbchain.org/showcase/mcp/skills) URL) and learns from it. |
+| **Who installs** | The **user** installs the skill (e.g. `npx skills@1.5.1 add bnb-chain/bnbchain-skills` or copy into `~/.agents/skills/`). | The **OpenClaw bot** fetches the skill page itself (e.g. `curl` the [OpenClaw Skills](https://docs.bnbchain.org/showcase/mcp/skills) URL) and learns from it. |
 | **Who acts** | The **agent** (Cursor/Claude) reads the skill and then **sets up MCP for the user**—adds the bnbchain-mcp server to the user’s MCP config and uses the tools. | The **OpenClaw bot** autonomously knows the `npx @bnb-chain/mcp@latest` command and installs/uses the MCP based on that page. |
 | **Purpose** | Teach the in-IDE agent to configure bnbchain-mcp in the user’s environment and use every MCP tool. | Give OpenClaw (and similar agents) a single fetchable page so they can discover and use BNB Chain MCP on their own. |
 
@@ -46,14 +46,14 @@ npx skills@1.5.1 add bnb-chain/bnbchain-skills -g
 
 ```bash
 git clone https://github.com/bnb-chain/bnbchain-skills.git
-cp -r bnbchain-skills/skills/* ~/.cursor/skills/
+cp -r bnbchain-skills/skills/* ~/.agents/skills/
 ```
 
 **Project skill** (current project only):
 
 ```bash
 git clone https://github.com/bnb-chain/bnbchain-skills.git
-cp -r bnbchain-skills/skills/* .cursor/skills/
+cp -r bnbchain-skills/skills/* .agents/skills/
 ```
 
 ### Using the skill
