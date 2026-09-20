@@ -1,0 +1,37 @@
+{
+  "name": "bnbagent-studio",
+  "version": "0.0.14",
+  "description": "Build, run, diagnose, deploy, and monetize BNB Chain seller agents with bag.",
+  "author": {
+    "name": "BNB Chain"
+  },
+  "homepage": "https://github.com/bnb-chain/bnbchain-skills",
+  "repository": "https://github.com/bnb-chain/bnbchain-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "bnb-chain",
+    "agent",
+    "wallet",
+    "erc-8004",
+    "erc-8183",
+    "x402"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "BNB Agent Studio",
+    "shortDescription": "Build and operate BNB Chain seller agents",
+    "longDescription": "Guided BNB Agent Studio workflows for wallets, ERC-8004 identity, ERC-8183 commerce, x402 payments, diagnostics, and deployment.",
+    "developerName": "BNB Chain",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/bnb-chain/bnbchain-skills",
+    "defaultPrompt": [
+      "Create a BNB Chain seller agent with BNB Agent Studio.",
+      "Diagnose this BNB Agent Studio project.",
+      "Help me deploy this seller agent safely."
+    ],
+    "brandColor": "#F3BA2F"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "bnbchain-skills",
+  "interface": {
+    "displayName": "BNB Chain Skills"
+  },
+  "plugins": [
+    {
+      "name": "bnbagent-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bnbagent-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

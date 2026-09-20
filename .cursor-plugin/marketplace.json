@@ -1,0 +1,19 @@
+{
+  "name": "bnbchain-skills",
+  "description": "Official BNB Chain agent plugins",
+  "owner": {
+    "name": "BNB Chain"
+  },
+  "plugins": [
+    {
+      "name": "bnbagent-studio",
+      "description": "Build, run, diagnose, deploy, and monetize BNB Chain seller agents with bag.",
+      "version": "0.0.14",
+      "source": "./plugins/bnbagent-studio",
+      "category": "Developer Tools"
+    }
+  ],
+  "metadata": {
+    "description": "Official BNB Chain agent plugins"
+  }
+}

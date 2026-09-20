@@ -1,10 +1,49 @@
 # BNB Chain Skills
 
-> A collection of AI agent skills for the [BNB Chain MCP](https://github.com/bnb-chain/bnbchain-mcp) (Model Context Protocol) server.
+> Official skills and plugins for building with BNB Chain.
 
 ## Introduction
 
-BNB Chain Skills helps AI agents (e.g. Cursor, Claude) install and use the BNB Chain MCP server effectively. It provides structured knowledge on how to connect the MCP server, configure credentials, and use each available tool for blocks, transactions, contracts, tokens, NFTs, wallet operations, ERC-8004 agent registration, and Greenfield storage.
+BNB Chain Skills helps AI coding agents install and use BNB Chain developer tools. It includes the BNB Chain MCP skill and the BNB Agent Studio plugin for Claude Code, Cursor, and Codex.
+
+## Marketplace plugins
+
+| Plugin | Description |
+|--------|-------------|
+| **bnbagent-studio** | Build, run, diagnose, deploy, and monetize BNB Chain seller agents with `bag`. |
+
+This marketplace distributes only `bnbagent-studio`. For `bnbchain-mcp-skill`, use the [standalone skills installation](#standalone-skills) below.
+
+### Install BNB Agent Studio
+
+The `bnbagent-studio` plugin guides agents through creating, running, diagnosing, and deploying BNB Chain seller agents with the `bag` CLI. The plugin does not install the CLI automatically; install it explicitly and verify the version first:
+
+```bash
+npm install -g @bnbagent/studio-cli@latest
+bag --version
+```
+
+Release order: publish Studio first, then publish the matching plugin snapshot to `bnb-chain/bnbchain-skills`. The remote commands below require the marketplace manifests to be merged into that official repository’s default branch. Until that release is published, use a reviewed local checkout with `claude plugin marketplace add /absolute/path/to/bnbchain-skills` or `codex plugin marketplace add /absolute/path/to/bnbchain-skills`.
+
+#### Claude Code
+
+```text
+/plugin marketplace add bnb-chain/bnbchain-skills
+/plugin install bnbagent-studio@bnbchain-skills
+```
+
+#### Cursor
+
+Open **Customize → Plugins**, select the BNB Chain marketplace, and install **BNB Agent Studio**.
+
+#### Codex
+
+```bash
+codex plugin marketplace add bnb-chain/bnbchain-skills
+codex plugin add bnbagent-studio@bnbchain-skills
+```
+
+The marketplace currently contains only `bnbagent-studio`; it does not install `bnbchain-mcp-skill`. The three platform manifests install the same versioned Studio skill payload. See [`plugins/bnbagent-studio`](plugins/bnbagent-studio) for its version, minimum compatible `bag` version, and source commit.
 
 ## Claude/Cursor skills vs OpenClaw skills
 
@@ -20,18 +59,31 @@ So: **Claude/Cursor skills** = user installs skill → agent uses it to **set MC
 
 Skills are structured knowledge files that give AI coding agents domain-specific expertise. They follow a portable format that works across different AI tools. When you install a skill, the agent learns how to install bnbchain-mcp and how to use each MCP tool without needing to search external docs.
 
-## Available Skills
+## Standalone skills
+
+These portable skills use `npx skills add` or manual copy. These commands do not register marketplace plugins.
 
 | Skill | Description |
 |-------|-------------|
-| **bnbchain-mcp-skill** | Install and use BNB Chain MCP — blocks, transactions, contracts, tokens, NFTs, wallet, ERC-8004 agents, Greenfield. Covers connection, credentials, and every MCP tool. |
+| **bnbchain-mcp-skill** | Install and use BNB Chain MCP — blocks, transactions, contracts, tokens, NFTs, wallet, ERC-8004 agents, and Greenfield. Available through this skills path only. |
+| **bnbagent-studio** | The portable Studio skill, as an alternative to the marketplace plugin above. |
 
-## Installation
+Install just the MCP skill:
+
+```bash
+npx skills add bnb-chain/bnbchain-skills --skill bnbchain-mcp-skill
+```
 
 ### Quick Install (Recommended)
 
 ```bash
 npx skills add bnb-chain/bnbchain-skills
+```
+
+Install only the BNB Agent Studio skill:
+
+```bash
+npx skills add bnb-chain/bnbchain-skills --skill bnbagent-studio
 ```
 
 Install globally (available across all projects):

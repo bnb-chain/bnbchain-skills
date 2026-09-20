@@ -1,0 +1,20 @@
+{
+  "name": "bnbagent-studio",
+  "version": "0.0.14",
+  "description": "Build, run, diagnose, deploy, and monetize BNB Chain seller agents with bag.",
+  "author": {
+    "name": "BNB Chain"
+  },
+  "homepage": "https://github.com/bnb-chain/bnbchain-skills",
+  "repository": "https://github.com/bnb-chain/bnbchain-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "bnb-chain",
+    "agent",
+    "wallet",
+    "erc-8004",
+    "erc-8183",
+    "x402"
+  ],
+  "skills": "./skills/"
+}
