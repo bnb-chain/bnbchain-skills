@@ -1,9 +1,9 @@
 # BNB Agent Studio plugin
 
-Generated from `packages/studio-cli/skills` at Studio commit `49d7b28505b78cf0b75ac36f060d3b5ddb4c2de1`. Do not edit this snapshot directly.
+Generated from `packages/studio-cli/skills` at Studio commit `335ec62a81a15e03261f3b3da56fffeed685c3f5`. Do not edit this snapshot directly.
 
-Plugin version: `0.0.14`. Required runtime: `bag >=0.0.14`.
-CLI build paired with this snapshot: `0.0.14`. Prerelease CLI builds are not covered by the stable minimum-version range.
+Plugin version: `0.0.16`. Required runtime: `bag >=0.0.16`.
+CLI build paired with this snapshot: `0.0.16`. Prerelease CLI builds are not covered by the stable minimum-version range.
 
 This plugin is distributed under Apache-2.0; see [LICENSE](LICENSE). The hosting repository may use a different license for other content.
 

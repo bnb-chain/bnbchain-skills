@@ -8,7 +8,7 @@
     {
       "name": "bnbagent-studio",
       "description": "Build, run, diagnose, deploy, and monetize BNB Chain seller agents with bag.",
-      "version": "0.0.14",
+      "version": "0.0.16",
       "source": "./plugins/bnbagent-studio",
       "category": "Developer Tools"
     }

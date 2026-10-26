@@ -1,6 +1,6 @@
 {
   "name": "bnbagent-studio",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Build, run, diagnose, deploy, and monetize BNB Chain seller agents with bag.",
   "author": {
     "name": "BNB Chain"
